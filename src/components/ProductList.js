@@ -17,7 +17,6 @@ const ProductList = () => {
           <p>{product.title}</p>
           <img src={product.image} alt={product.title} />
           <p>${product.price}</p>
-          <p>${product.price}</p>
         </div>
       ))}
     </section>
