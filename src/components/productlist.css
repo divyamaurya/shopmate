@@ -1,17 +1,36 @@
 section {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .card {
-  max-width: 350px;
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
   border-radius: 25px;
   background-color: beige;
   margin: 10px;
-  padding: 5px;
+  padding: 20px;
 }
-.card > img {
+.card div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.card div:nth-child(2) {
+  display: flex;
+}
+.card img {
   width: 250px;
   height: 250px;
+}
+
+.btn {
+  border: none;
+  background-color: green;
+  border-radius: 8px;
+  margin-right: 20px;
 }

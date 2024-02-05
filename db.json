@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Basics to Advanced In React",
+      "price": 29,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Basics In React",
+      "price": 32,
+      "available": false
+    },
+    {
+      "id": 3,
+      "name": "Redux In React",
+      "price": 10,
+      "available": false
+    },
+    {
+      "id": 4,
+      "name": "GraphQL",
+      "price": 29,
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "React Library",
+      "price": 22,
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "React, Redux and GraphQL",
+      "price": 299,
+      "available": true
+    }
+  ]
+}
