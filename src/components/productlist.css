@@ -1,0 +1,17 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.card {
+  max-width: 350px;
+  border-radius: 25px;
+  background-color: beige;
+  margin: 10px;
+  padding: 5px;
+}
+.card > img {
+  width: 250px;
+  height: 250px;
+}
