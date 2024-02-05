@@ -30,7 +30,9 @@ section {
 
 .btn {
   border: none;
-  background-color: green;
+  background-color: rgb(116, 203, 116);
   border-radius: 8px;
   margin-right: 20px;
+  color: white;
+  cursor: pointer;
 }
