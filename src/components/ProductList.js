@@ -1,16 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./productlist.css";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [url, setUrl] = useState("http://localhost:8000/products");
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-    // console.log(products);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => setProducts(data));
+  // }, [url]);
+
+  //Inside useeffect
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     setProducts(data);
+  //   };
+  //   fetchProducts();
+  // }, [url]);
+
+  //outside useeffect
+  const fetchProducts = useCallback(async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    setProducts(data);
   }, [url]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   return (
     <section>
