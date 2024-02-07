@@ -34,7 +34,7 @@ const ProductList = () => {
   // }, [fetchProducts]);
 
   //Custom Hooks for fetching data
-  const { data: products } = useFetch(url);
+  const { data: products, loading } = useFetch(url);
   console.log("products", products);
   return (
     <section>
@@ -53,6 +53,7 @@ const ProductList = () => {
         </button>
       </div>
 
+      {loading && <div className="loading"></div>}
       {products &&
         products.map((product) => (
           <div className="card" key={product.id}>
