@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./productlist.css";
+import { useFetch } from "../hooks/useFetch";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [url, setUrl] = useState("http://localhost:8000/products");
 
   // useEffect(() => {
@@ -22,16 +23,19 @@ const ProductList = () => {
   // }, [url]);
 
   //outside useeffect
-  const fetchProducts = useCallback(async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setProducts(data);
-  }, [url]);
+  // const fetchProducts = useCallback(async () => {
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   setProducts(data);
+  // }, [url]);
 
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, [fetchProducts]);
 
+  //Custom Hooks for fetching data
+  const { data: products } = useFetch(url);
+  console.log("products", products);
   return (
     <section>
       <div>
@@ -49,18 +53,19 @@ const ProductList = () => {
         </button>
       </div>
 
-      {products.map((product) => (
-        <div className="card" key={product.id}>
-          <div>
-            <p>ProductID: {product.id}</p>
-            <p>{product.name}</p>
+      {products &&
+        products.map((product) => (
+          <div className="card" key={product.id}>
+            <div>
+              <p>ProductID: {product.id}</p>
+              <p>{product.name}</p>
+            </div>
+            <div>
+              <p>${product.price}</p>
+            </div>
+            {product.available === true ? "Available" : "Unavailable"}
           </div>
-          <div>
-            <p>${product.price}</p>
-          </div>
-          {product.available === true ? "Available" : "Unavailable"}
-        </div>
-      ))}
+        ))}
     </section>
   );
 };
